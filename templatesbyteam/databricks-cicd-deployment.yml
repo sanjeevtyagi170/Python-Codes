@@ -21,17 +21,16 @@ stages:
 - stage: Dev
   displayName: Develeopment
   jobs:
-
   - job: dataBricks
     displayName: DataBricks
     pool: 
       vmImage: 'windows-latest'
     steps:
-    - script: |
+    - script:
        python -m pip install black
        black .
       displayName: 'Run Black - Code Formatter'
-    - script: |
+    - script:
        python -m pip install flake8
        flake8 .
       displayName: 'Run pylint - Code Checker'
