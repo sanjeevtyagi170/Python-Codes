@@ -1,0 +1,42 @@
+{
+    "task_name": "data-transformation-1",
+    "description": "Data transformations 1",
+    "script_name": "data-transformation-1.py",
+    "script_path": "src/scripts/",
+    "platform": {
+        "aws": {
+            "dev": {
+                "task_type": "aws-glue-job",
+                "worker_type": "G.1X",
+                "max_number_of_workers": 8
+            },
+            "prod": {
+                "task_type": "aws-glue-job",
+                "worker_type": "G.2X",
+                "max_number_of_workers": 8
+            }
+        },
+        "azure": {
+            "dev": {
+                "task_type": "datafactory-job",
+                "worker_version": "v1",
+                "number_of_workers": 8
+            },
+            "prod": {
+                "task_type": "datafactory-job",
+                "worker_version": "v2",
+                "number_of_workers": 8
+            }
+        },
+        "on-premis": {
+            "dev": {
+                "task_type": "pyspark-job",
+                "number_of_workers": 8
+            },
+            "prod": {
+                "task_type": "pyspark-job",
+                "number_of_workers": 8
+            }
+        }
+    }
+}

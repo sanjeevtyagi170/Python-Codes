@@ -1,0 +1,47 @@
+#DevOps CI/CD Pipeline
+
+name: "Data Bricks prod pipeline"
+trigger:
+  branches:
+    include:
+    - master 
+  paths:
+    include:
+    - data-bricks/*
+
+variables:
+  databricksToken: '<user-access-token>'
+
+stages:
+- stage: Prod
+  displayName: Production
+  jobs:
+
+stages:
+- stage: Dev
+  displayName: Develeopment
+  jobs:
+
+  - job: dataBricks
+    displayName: DataBricks
+    pool: 
+      vmImage: 'windows-latest'
+    steps:
+    - script: |
+       python -m pip install black
+       black .
+      displayName: 'Run Black - Code Formatter'
+    - script: |
+       python -m pip install flake8
+       flake8 .
+      displayName: 'Run pylint - Code Checker'
+      enabled: false
+    - task: DataThirstLtd.databricksDeployScriptsTasks.databricksDeployScriptsTask.databricksDeployScripts@0
+      displayName: 'Databricks Notebooks deployment'
+      inputs:
+        bearerToken: $(databricksToken)
+        region: <databricks workspace region>
+        localPath: '$(System.DefaultWorkingDirectory)/data-bricks/'
+        databricksPath: /
+        
+        
