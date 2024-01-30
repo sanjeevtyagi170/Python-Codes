@@ -1,9 +1,7 @@
+import libraries
 from pyspark.sql import SparkSession
-from pyspark.sql.window import Window
-from pyspark.sql.functions import row_number, sum
-import pandas as pd
-import numpy as np
-import random
+from databricks.sdk import WorkspaceClient
+print("libraries called success")
 
 spark = SparkSession.builder.appName("sparkWindowFunctionsExample").getOrCreate()
 data = [(1,100,1,2022),(1,700,2,2022),(1,600,2,2022),(2,1000,3,2022),(2,1100,1,2022),(3,400,1,2021),(3,500,1,2021)]
@@ -11,7 +9,7 @@ df = spark.createDataFrame(data,schema=["id","salary","month","year"])
 df.createOrReplaceTempView("df")
 window_1=Window.partitionBy(["year","month"]).orderBy("salary")
 df=df.withColumn("ytd_sum",sum("salary").over(window_1)).drop("id")
-df.show()
+print(df.show())
 
 df2=spark.sql("""SELECT
     salary,

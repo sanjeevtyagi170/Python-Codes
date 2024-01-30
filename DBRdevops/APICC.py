@@ -1,5 +1,5 @@
 ###### METHOD 1 - Databricks SDK ######
-from databricks.sdk import WorkspaceClient
+import libraries
 
 workspace_client = WorkspaceClient()
 
@@ -14,8 +14,6 @@ print(f"Cluster created with ID: {new_cluster.cluster_id}")
 
 
 ###### METHOD 2 - REST API ######
-
-import requests
 
 workspace_host = "https://<your-workspace-url>"
 personal_token = "dapi<your-token>"
