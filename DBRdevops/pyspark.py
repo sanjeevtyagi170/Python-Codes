@@ -39,7 +39,7 @@ def generate_data(num_rows):
 
 # Generate 100000 rows of data
 list_1 = generate_data(5000000)
-list_1[0:2]
+print(list_1[0:2])
 
 
 def find_tuples_above_average(list_1):
@@ -47,11 +47,3 @@ def find_tuples_above_average(list_1):
    return [(name, salary) for name, salary in list_1 if salary > average_salary]
 high_earners = find_tuples_above_average(list_1)
 print(len(high_earners))
-
-%%timeit
-import numpy as np
-# names, salaries = zip(*list_1)
-np_names=np.array(names)
-np_salaries=np.array(list_1[5][1])
-average_salary = np_salaries.mean()
-print(len(names[np_salaries>average_salary]))
