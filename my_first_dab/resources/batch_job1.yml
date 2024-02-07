@@ -2,7 +2,7 @@
 resources:
   jobs:
     my_first_dab_job:
-      name: my_first_dab_job1
+      name: my_first_dab_job
 
       schedule:
         # Run every day at 8:37 AM
