@@ -42,5 +42,3 @@ stages:
         region: <databricks workspace region>
         localPath: '$(System.DefaultWorkingDirectory)/data-bricks/'
         databricksPath: /
-        
-        
