@@ -8,7 +8,7 @@ resources:
         # Run every day at 8:37 AM
         quartz_cron_expression: '0 * * * * ?'
         timezone_id: Asia/Kolkata
-        pause_status: UNPAUSED
+        pause_status: PAUSED # UNPAUSED
 
       email_notifications:
         on_failure:
