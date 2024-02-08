@@ -18,7 +18,7 @@ resources:
           job_cluster_key: job_cluster
           notebook_task:
             notebook_path: ../src/notebook.ipynb
-        
+            
       job_clusters:
         - job_cluster_key: job_cluster
           new_cluster:
