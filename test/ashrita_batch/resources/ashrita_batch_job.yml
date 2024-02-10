@@ -1,13 +1,13 @@
-# The main job for my_first_dab.
+# The main job for ashrita_batch.
 resources:
   jobs:
-    my_first_dab_job:
-      name: my_first_dab_job
+    ashrita_batch_job:
+      name: ashrita_batch_job
 
       schedule:
         # Run every day at 8:37 AM
         quartz_cron_expression: '44 37 8 * * ?'
-        timezone_id: Asia/Kolkata
+        timezone_id: Europe/Amsterdam
 
       email_notifications:
         on_failure:
@@ -18,12 +18,12 @@ resources:
           job_cluster_key: job_cluster
           notebook_task:
             notebook_path: ../src/notebook.ipynb
-            
+        
       job_clusters:
         - job_cluster_key: job_cluster
           new_cluster:
             spark_version: 13.3.x-scala2.12
-            node_type_id: Standard_DS3_v2
+            node_type_id: Standard_D3_v2
             autoscale:
-                min_workers: 0
-                max_workers: 0
+                min_workers: 1
+                max_workers: 4
