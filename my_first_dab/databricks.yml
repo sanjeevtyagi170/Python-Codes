@@ -33,12 +33,12 @@ targets:
     mode: production
     workspace:
       host: https://adb-1969238746384374.14.azuredatabricks.net
+      root_path: /Repos/sureshtyagil501@gmail.com/devdbrassetbundles/.bundle/${bundle.name}/${bundle.target}
       # We always use /Users/sureshtyagil501@gmail.com for all resources to make sure we only have a single copy.
       # If this path results in an error, please make sure you have a recent version of the CLI installed.
       # root_path: /Users/sureshtyagil501@gmail.com/.bundle/${bundle.name}/${bundle.target}
-      # root_path: /Repos/sureshtyagil501@gmail.com/devdbrassetbundles/.bundle/${bundle.name}/${bundle.target}
-      
+
     run_as:
+      user_name: sureshtyagil501@gmail.com
       # This runs as sureshtyagil501@gmail.com in production. We could also use a service principal here,
       # see https://docs.databricks.com/dev-tools/bundles/permissions.html.
-      user_name: sureshtyagil501@gmail.com

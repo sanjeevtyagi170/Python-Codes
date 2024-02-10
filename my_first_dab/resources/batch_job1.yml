@@ -18,7 +18,22 @@ resources:
           job_cluster_key: job_cluster
           notebook_task:
             notebook_path: ../src/notebook.ipynb
-            
+        #     base_parameters:
+        #       num_rows;"10000"
+        #       env:""
+        # - task_key: "bronze_customers"
+        #   job_cluster_key: job_cluster
+        #   depends on:
+        #     - task key: "notebook_task"
+        #   notebook_task:
+        #     notebook_path:
+        #       base_parameters:
+        #         source_dataset:"customers" 
+        #         num_rows:"10000"
+        #         env:""
+
+
+
       job_clusters:
         - job_cluster_key: job_cluster
           new_cluster:
