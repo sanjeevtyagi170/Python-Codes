@@ -1,9 +1,24 @@
-A = [1, 3, 6, 4, 1, 2]
-A=sorted(set(A))
-# A = [1,2,3,4,6]
-not_occur=[]
-for i in range(len(A)-1):
-    if A[i+1]!=A[i]+1:
-        x=A[i]+1
-        not_occur.append(x)
-print(min(not_occur))
+def solution(S):
+    count_a = 0  # Count of 'A's
+    count_b = 0  # Count of 'B's
+
+    for char in S:
+        if char == 'A':
+            count_a += 1
+        else:  # char == 'B'
+            count_b += 1
+
+    deletions = min(count_a, count_b)  # Minimum deletions needed
+
+    return deletions
+
+# Test cases
+print(solution("BAAABAB"))  # Output: 2
+print(solution("BBABAA"))   # Output: 3
+print(solution("AABBBB"))   # Output: 0
+
+
+
+print(solution("BAAABAB")) #return 2
+print(solution("BBABAA")) #return 
+print(solution("AABBBB"))
