@@ -1,18 +1,14 @@
-def solution(S):
-    count_a = 0  # Count of 'A's
-    count_b = 0  # Count of 'B's after the first 'A'
-
-    for char in S:
-        if char == 'A':
-            count_a += 1
-        elif char == 'B' and count_a > count_b:
-            count_b += 1
-
-    deletions = count_a - count_b  # Minimum deletions needed
-
-    return deletions
-
-# Test cases
-print(solution("BAAABAB"))  # Output: 2
-print(solution("BBABAA"))   # Output: 3
-print(solution("AABBBB"))   # Output: 0
+def solution(A, D):
+    # Implement your solution here
+    total_amount=sum(A)
+    fees=5
+    nom1=11
+    nom2=12
+    months=[]
+    for amt, dt in zip(A,D):
+        month =dt[5:7]
+        months.append(month)
+    print(months)
+A=[100, 100, 100, -10]
+D=['2020-12-31', '2020-12-22', '2020-12-03', '2020-12-29']
+solution(A,D)
