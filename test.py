@@ -1,13 +1,22 @@
 import pandas as pd
 with open("input.txt","r") as fl:
-    file_read=fl.read()
+    lines=fl.read().split("\n")
 
-lines = file_read.split("\n")
-data=[]
+numbers=[]
+text=[]
 for line in lines:
-    words = line.split()
-    numbers = sum([int(word) for word in words if word.isdigit()])
-    text = " ".join([word for word in words if not word.isdigit()])
-    data.append({"numbers": numbers, "text": text})
-df=pd.DataFrame(data)
-print(df)
+    word=line.split()
+    numbers.append(int(word[0]))
+    text.append(word[1])
+
+df=pd.DataFrame({"numbers": numbers, "text": text})
+
+encoded_numbers=[]
+x=len(df["numbers"])
+y=int(round((x+4)/2,0))-1
+for i in range(1,y):
+    seq=int((i*(i+1)/2))
+    encoded_numbers.append(seq)
+output=df[df["numbers"].isin(encoded_numbers)].sort_values(by="numbers")["text"].tolist()
+print(" ".join(output))
+print(lines)
