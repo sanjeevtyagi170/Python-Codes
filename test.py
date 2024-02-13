@@ -13,6 +13,3 @@ def decode(message_file):
     return " ".join(output)
 
 decode("input.txt")
-
-dictionary={"numbers": numbers, "text": text}
-print(dictionary["numbers"])
