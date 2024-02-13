@@ -13,3 +13,8 @@ def decode(message_file):
     return " ".join(output)
 
 decode("input.txt")
+
+filtered_output = [
+    text[i] for i in sorted(range(len(numbers)), key=numbers.__getitem__) if numbers[i] in encoded_numbers
+]
+print(filtered_output)
