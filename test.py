@@ -11,8 +11,8 @@ df=pd.DataFrame({"numbers": numbers, "text": text})
 
 encoded_numbers=[]
 x=len(df["numbers"])
-y=int(round((pow(x, 0.7)*(0.5)),0))+2
-for i in range(y):
+y=int(round((pow(x, 0.5045)*(1.341)),0))
+for i in range(y+2):
     seq=int((i*(i+1)/2))
     encoded_numbers.append(seq)
 output=df[df["numbers"].isin(encoded_numbers)].sort_values(by="numbers")["text"].tolist()
