@@ -1,4 +1,2 @@
-df ['Start']=pd.to_datetime(df ['Start']) 
-df ['End']=pd.to_datetime(df ['End']) 
-df['diff']=(df ['End'] - df ['Start']).dt.total_seconds()/60
-print(df)
+myset={1,2,3,4,5}
+print(myset[2])
