@@ -8,7 +8,7 @@ def decode(message_file):
     no_of_rows=dataframe.shape[0]
     times_for_loop_run=int(round((pow(no_of_rows, 0.5045)*(1.341)),0)) # did by trial and error
     encoded_numbers=[int((i*(i+1)/2)) for i in range(times_for_loop_run+2)]
-    output = [text[i] for i in sorted(range(len(numbers)), key=numbers.__getitem__) if numbers[i] in encoded_numbers]
+    output=dataframe[dataframe["numbers"].isin(encoded_numbers)].sort_values(by="numbers")["text"].tolist()
     print(" ".join(output))
     return " ".join(output)
 
