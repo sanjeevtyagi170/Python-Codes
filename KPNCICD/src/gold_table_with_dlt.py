@@ -23,14 +23,14 @@ def orders_silver():
 #Read silver tables and apply required transformation
 @dlt_table
 @dlt.expect("ORDER_ID_NOT_NULL","ORDER ID IS NOT NULL") # data quality rules
-def order_details_gold(table_nm: str):
+def order_details_gold():
     orders_silver = dlt.read('orders_silver')
     order_items_silver = dlt.read('order_items_silver')
     order_details = orders_silver.join(order_items_silver,ON = 'ORDER_ID','left')
     order_details = order_details.select(orders_silver['ORDER_ID'],order_silver['ORDER_DATE'],order_silver['CUSTOMER_ID'],order_items_silver['PRODUCT_ID'],order_items_silver['UNIT_PRICE'],order_items_silver['QUANTITY'])
     order_details = order_details.withColumn('SUB_TOTAL_AMOUNT',order_details['UNIT_PRICE']*order_details['QUANTITY'])
     return order_details   
-	
+
 	
 #Aggregate the data
 @dlt_table
