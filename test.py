@@ -1,11 +1,19 @@
-import pandas as pd
-def foo(i,x=[]):  # Create a new list inside the function
-  x.append(i)
-  return x
-
-for i in range(2):
-  print(foo(i))
-url="https://www.kaggle.com/datasets/wolfgang91/telecom-calls-dataset?select=ICalls+dataset.xlsx"
-df=pd.read_csv(url)
-print(df.head())
-  
+def calPoints(operations):
+        operator=['+','C','D']
+        stack=[]
+        for i in operations:
+            if i in operator:
+                if i=='C':
+                    stack.pop()
+                elif i=='D':
+                    last_element=stack[-1]
+                    stack.append(int(last_element)*2)
+                elif i=='+':
+                    last_element=stack[-1]
+                    second_last_element=stack[-2]
+                    stack.append(int(last_element)+int(second_last_element))
+            else:
+                stack.append(int(i))
+        return sum(stack)
+ops = ["5","2","C","D","+"]
+print(calPoints(ops))
