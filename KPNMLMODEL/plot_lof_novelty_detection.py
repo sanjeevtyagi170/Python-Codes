@@ -47,9 +47,8 @@ X_outliers = np.random.uniform(low=-4, high=4, size=(20, 2))
 # fit the model for novelty detection (novelty=True)
 clf = LocalOutlierFactor(n_neighbors=20, novelty=True, contamination=0.1)
 clf.fit(X_train)
-# DO NOT use predict, decision_function and score_samples on X_train as this
-# would give wrong results but only on new unseen data (not used in X_train),
-# e.g. X_test, X_outliers or the meshgrid
+# DO NOT use predict, decision_function and score_samples on X_train as this would give wrong results but only on 
+# new unseen data (not used in X_train) e.g. X_test, X_outliers or the meshgrid
 y_pred_test = clf.predict(X_test)
 y_pred_outliers = clf.predict(X_outliers)
 n_error_test = y_pred_test[y_pred_test == -1].size
