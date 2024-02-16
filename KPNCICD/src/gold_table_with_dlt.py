@@ -22,8 +22,8 @@ def orders_silver():
 
 #Read silver tables and apply required transformation
 @dlt_table
-@dlt.expect("ORDER_ID_NOT_NULL","ORDER ID IS NOT NULL")
-def order_details_gold():
+@dlt.expect("ORDER_ID_NOT_NULL","ORDER ID IS NOT NULL") # data quality rules
+def order_details_gold(table_nm: str):
     orders_silver = dlt.read('orders_silver')
     order_items_silver = dlt.read('order_items_silver')
     order_details = orders_silver.join(order_items_silver,ON = 'ORDER_ID','left')
