@@ -2,7 +2,7 @@ import pandas as pd
 df=pd.DataFrame({
     "country":["USA","India","UK","Germany","Australia"],
     "sales":[20000,25000,21000,8000,100000]
-})
+    })
 for i,row in df.iterrows():
     if row["country"]=="India":
         df.loc[i,"rank"]=1
