@@ -1,16 +1,32 @@
 import pandas as pd
 import numpy as np
 
-df=pd.DataFrame({
-    "country":["USA","India","UK","Germany","Australia"],
-    "population":[21000,40000,20000,80000,100000]
-    })
 
-n=len(df["country"])
+# y=(i for i in range(3))
+# print(next(y))
 
-for i,row in df.iterrows():
-    total_sum=(sum(df["population"])-row["population"])/(n-1)
-    print(total_sum)
+
+# input="ukulele"
+# output={}
+# for i,element in enumerate(input):
+#     if element in output:
+#         output[element].append(i)
+#     else:
+#         output[element]=[i]    
+# print(output)
+
+# df=pd.DataFrame({
+#     "country":["USA","India","UK","Germany","Australia"],
+#     "population":[20000,60000,20000,80000,80000]
+#     })
+
+# n=len(df["country"])
+# total_pop=sum(df["population"])
+# average_pop=[((total_pop-row["population"])/(n-1)) for i,row in df.iterrows()]
+# # for i,row in df.iterrows():
+# #     average_pop.append((sum(df["population"])-row["population"])/(n-1))
+# df["average_pop"]=average_pop
+# print(df)
 
 # Priority Ranking
 # df=pd.DataFrame({
