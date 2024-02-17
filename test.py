@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 df=pd.DataFrame({
     "country":["USA","India","UK","Germany","Australia"],
@@ -13,8 +14,9 @@ def ranking(df):
             df.loc[i,"rank"]=0
     return df.sort_values(by=["rank","sales"],ascending=[False,False]).drop("rank",axis=1)
 
-df1=df.where(df.)
-print(df1)
+df["rank"]=np.where(df["country"]=="India",1,0)
+df=df.sort_values(by=["rank","sales"],ascending=[False,False]).drop("rank",axis=1)
+print(df)
 
 # def calPoints(operations):
 #         operator=['+','C','D']
