@@ -5,9 +5,9 @@ df=pd.DataFrame({
 })
 for i,row in df.iterrows():
     if row["country"]=="India":
-        df["rank"]=1
+        df["rank"]="1"
     else:
-        df["rank"]=0
+        df["rank"]="0"
 print(df)
 
 # def calPoints(operations):
