@@ -3,11 +3,14 @@ import numpy as np
 
 df=pd.DataFrame({
     "country":["USA","India","UK","Germany","Australia"],
-    "sales":[20000,25000,21000,8000,100000]
+    "population":[21000,40000,20000,80000,100000]
     })
-print(df)
 
+n=len(df["country"])
 
+for i,row in df.iterrows():
+    total_sum=(sum(df["population"])-row["population"])/(n-1)
+    print(total_sum)
 
 # Priority Ranking
 # df=pd.DataFrame({
