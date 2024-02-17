@@ -5,10 +5,10 @@ df=pd.DataFrame({
 })
 for i,row in df.iterrows():
     if row["country"]=="India":
-        df["rank"]="1"
+        df.loc[i,"rank"]=1
     else:
-        df["rank"]="0"
-print(df)
+        df.loc[i,"rank"]=0
+print(df.sort_values(by=["rank","sales"],ascending=[False,False]).drop("rank",axis=1))
 
 # def calPoints(operations):
 #         operator=['+','C','D']
